@@ -199,38 +199,65 @@ h2 {
 }
 
 /* ===== Desktop (wide screen) adjustments ===== */
+/* ===== Desktop (wide screen) adjustments ===== */
 @media (min-width: 1000px) {
   body {
     font-size: 22px;
     padding: 30px;
   }
+
+  /* Put logo top-left and push the title to its own full-width row */
   .page-top {
+    display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+    flex-wrap: wrap;               /* allow a second row */
+    align-items: flex-start;
+    justify-content: flex-start;   /* logo sits at top-left */
+    gap: 20px 40px;
   }
+
+  .logo-wrapper {
+    display: flex;
+    justify-content: flex-start;   /* don't center the logo on desktop */
+    flex: 0 0 auto;                /* size to content, no stretching */
+    order: 1;
+  }
+
+  .title-wrapper {
+    flex: 1 1 100%;                /* force full width on the second line */
+    order: 2;
+    text-align: center;            /* center the title and timestamp */
+    margin-top: 6px;
+  }
+
   .site-logo {
-    width: 300px; /* ✅ Desktop: big logo */
+    width: 300px;                  /* desktop: big logo */
   }
+
   h1 {
     font-size: 70px;
     text-align: center;
+    margin: 0;
   }
+
   h2 {
     font-size: 30px;
   }
+
   .cluster-flex {
     flex-direction: row;
     column-gap: 80px;
   }
+
   .left-column, .right-column {
     width: 50%;
   }
+
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 </style>
 
 </head>
@@ -241,7 +268,7 @@ h2 {
   </div>
   <div class="title-wrapper">
     <h1>Global News and Analysis Powered by AI</h1>
-    <div style="margin-top: 10px; font-size: 1.2em; color: #666;">Last updated: September 05, 2025 at 03:21 PM</div>
+    <div style="margin-top: 10px; font-size: 1.2em; color: #666;">Last updated: September 05, 2025 at 10:37 PM</div>
   </div>
 </div>
 
